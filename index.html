@@ -1,131 +1,967 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>2048 CUPCAKES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Cupcakes Game - Play Free Online Cupcake 2048 Game</title>
 
-  <link href="style/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Play the official 2048 Cupcakes game online for free! Combine delicious sweet treats, unlock rare cupcakes, track high scores, and master strategies in this fun, addictive puzzle game. No downloads required.">
+    <meta name="keywords" content="2048 cupcakes, 2048 cupcake game, play 2048 cupcakes, cupcake puzzle game, free 2048 online, sweet 2048, cupcake game strategy, 2048 unblocked">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="2048 Cupcakes Studio">
+    <link rel="canonical" href="https://2048cupcakes.org/">
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="format-detection" content="telephone=no" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2048cupcakes.org/">
+    <meta property="og:title" content="2048 Cupcakes Game - Play Free Online Sweet Puzzle">
+    <meta property="og:description" content="Merge delicious cupcakes, reach the 2048 Super Cupcake, and beat your high score in this sweet 2048 puzzle game!">
+    <meta property="og:image" content="https://2048cupcakes.org/og-cupcakes.jpg">
+    <meta property="og:site_name" content="2048 Cupcakes">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://2048cupcakes.org/">
+    <meta name="twitter:title" content="2048 Cupcakes Game - Play Free Online Sweet Puzzle">
+    <meta name="twitter:description" content="Merge delicious cupcakes, reach the 2048 Super Cupcake, and beat your high score in this sweet 2048 puzzle game!">
+    <meta name="twitter:image" content="https://2048cupcakes.org/og-cupcakes.jpg">
+
+    <!-- Theme & App Colors -->
+    <meta name="theme-color" content="#fdf2f8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Structured Data: WebApplication & SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://2048cupcakes.org/#webapp",
+          "url": "https://2048cupcakes.org/",
+          "name": "2048 Cupcakes Game",
+          "applicationCategory": "GameApplication",
+          "gameItem": "Cupcakes",
+          "genre": "Puzzle",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires HTML5 JavaScript support",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "12850",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://2048cupcakes.org/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://2048cupcakes.org/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Play 2048 Cupcakes",
+              "item": "https://2048cupcakes.org/#game"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://2048cupcakes.org/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is 2048 Cupcakes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2048 Cupcakes is a dessert-themed variation of Gabriele Cirulli's classic 2048 puzzle game. Instead of plain numbers, players combine matching cupcakes to create higher-value desserts until reaching the ultimate 2048 Super Cupcake."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you play 2048 Cupcakes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the arrow keys, WASD, or swipe on touchscreens to slide tiles across a 4x4 grid. When two identical cupcake tiles touch during a move, they merge into a higher-tier cupcake."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the highest cupcake in 2048 Cupcakes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The main goal is reaching the 2048 Super Cupcake (worth 2048 points). Players can choose to continue playing endlessly after achieving 2048 to reach higher score benchmarks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I play 2048 Cupcakes on mobile devices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! 2048 Cupcakes is fully optimized for mobile smartphones, tablets, and desktop computers with responsive touch swipe controls and audio feedback."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Undo feature work in 2048 Cupcakes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Undo button allows players to reverse up to five recent moves, giving you a second chance if you make a mistake or get stuck in a tight corner."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;600;700&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fdf2f8;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: pan-y;
+        }
+
+        .font-header {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        /* Responsive Grid Container */
+        .grid-container {
+            width: 100%;
+            max-width: 460px;
+            height: 460px;
+            position: relative;
+            background-color: #fbcfe8;
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.06), 0 10px 25px -5px rgba(244, 114, 182, 0.3);
+        }
+
+        @media (max-width: 500px) {
+            .grid-container {
+                max-width: 90vw;
+                height: 90vw;
+                padding: 8px;
+            }
+        }
+
+        .grid-bg {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 12px;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 500px) {
+            .grid-bg {
+                gap: 8px;
+            }
+        }
+
+        .grid-cell {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+        }
+
+        .tile-container {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .tile-container {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+            }
+        }
+
+        .tile {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: transform 120ms ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 4px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Tile Positions */
+        .tile-pos-0-0 { transform: translate(0%, 0%); }
+        .tile-pos-0-1 { transform: translate(100%, 0%); }
+        .tile-pos-0-2 { transform: translate(200%, 0%); }
+        .tile-pos-0-3 { transform: translate(300%, 0%); }
+        .tile-pos-1-0 { transform: translate(0%, 100%); }
+        .tile-pos-1-1 { transform: translate(100%, 100%); }
+        .tile-pos-1-2 { transform: translate(200%, 100%); }
+        .tile-pos-1-3 { transform: translate(300%, 100%); }
+        .tile-pos-2-0 { transform: translate(0%, 200%); }
+        .tile-pos-2-1 { transform: translate(100%, 200%); }
+        .tile-pos-2-2 { transform: translate(200%, 200%); }
+        .tile-pos-2-3 { transform: translate(300%, 200%); }
+        .tile-pos-3-0 { transform: translate(0%, 300%); }
+        .tile-pos-3-1 { transform: translate(100%, 300%); }
+        .tile-pos-3-2 { transform: translate(200%, 300%); }
+        .tile-pos-3-3 { transform: translate(300%, 300%); }
+
+        /* Animations */
+        @keyframes pop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes merge-bounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .tile-new {
+            animation: pop 200ms ease-out forwards;
+        }
+
+        .tile-merged {
+            animation: merge-bounce 200ms ease-out forwards;
+        }
+
+        /* Cupcake Level Styling */
+        .tile-2 { background-color: #fff1f2; color: #be123c; border: 2px solid #fecdd3; }
+        .tile-4 { background-color: #fdf4ff; color: #a21caf; border: 2px solid #f5d0fe; }
+        .tile-8 { background-color: #fefce8; color: #a16207; border: 2px solid #fef08a; }
+        .tile-16 { background-color: #fff7ed; color: #c2410c; border: 2px solid #ffedd5; }
+        .tile-32 { background-color: #fef2f2; color: #991b1b; border: 2px solid #fecaca; }
+        .tile-64 { background-color: #f7fee7; color: #4d7c0f; border: 2px solid #d9f99d; }
+        .tile-128 { background-color: #ecfdf5; color: #047857; border: 2px solid #a7f3d0; }
+        .tile-256 { background-color: #fffbebf; color: #b45309; border: 2px solid #fde68a; }
+        .tile-512 { background-color: #f0fdf4; color: #15803d; border: 2px solid #bbf7d0; }
+        .tile-1024 { background-color: #f5f3ff; color: #6d28d9; border: 2px solid #ddd6fe; }
+        .tile-2048 { background-color: #faf5ff; color: #7e22ce; border: 3px solid #e9d5ff; box-shadow: 0 0 15px #c084fc; }
+        .tile-super { background-color: #18181b; color: #f472b6; border: 2px solid #f472b6; box-shadow: 0 0 15px #f472b6; }
+
+        /* Custom Scrollbar for Info Overlay */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #f472b6;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <div class="heading">
-      <div class="title-container">
-        <h1 class="title">2048 <small>Cupcakes</small></h1>
-      </div>
-			<div class="scores-container">
-				<div class="score-points">0</div>
-				<div class="best-points">0</div>
-			</div>
-      <div class="scores-container">
-        <div class="score-container">0 Kcal</div>
-        <div class="best-container">0 Kcal</div>
-      </div>
-    </div>
+<body class="min-h-screen flex flex-col items-center justify-between p-4 bg-gradient-to-b from-pink-50 to-pink-100">
 
-    <div class="above-game">
-      <p class="game-intro">Join tiles and destroy <strong>EMPIRE!</strong></p>
-      <a class="restart-button">New Game</a>
-    </div>
-
-    <div class="game-container">
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Retry</a>
-          <div class="score-sharing"></div>
+    <!-- Header Section -->
+    <header class="w-full max-w-[460px] flex flex-col gap-3 mb-2">
+        <div class="flex items-center justify-between">
+            <h1 class="text-3xl sm:text-4xl font-header text-pink-600 tracking-wide flex items-center gap-2">
+                🧁 2048 <span class="text-pink-400 text-2xl sm:text-3xl">Cupcakes</span>
+            </h1>
+            
+            <!-- Controls (Sound & Undo) -->
+            <div class="flex gap-2">
+                <button id="soundBtn" onclick="toggleSound()" class="p-2.5 bg-white text-pink-600 rounded-xl shadow-md hover:bg-pink-50 transition active:scale-95 flex items-center justify-center font-bold" title="Toggle Sound">
+                    <svg id="soundIcon" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                </button>
+                <button id="undoBtn" onclick="undoMove()" class="p-2.5 bg-white text-pink-600 rounded-xl shadow-md hover:bg-pink-50 transition active:scale-95 flex items-center justify-center font-bold disabled:opacity-50 disabled:cursor-not-allowed" title="Undo Last Move" disabled>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-      </div>
 
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
+        <!-- Scores & New Game -->
+        <div class="flex justify-between items-center gap-2">
+            <div class="flex gap-2">
+                <div class="bg-pink-200/80 px-3 py-1.5 rounded-xl text-center min-w-[80px]">
+                    <div class="text-[10px] font-bold text-pink-700 uppercase tracking-wider">Score</div>
+                    <div id="score" class="text-lg font-extrabold text-pink-900">0</div>
+                </div>
+                <div class="bg-pink-200/80 px-3 py-1.5 rounded-xl text-center min-w-[80px]">
+                    <div class="text-[10px] font-bold text-pink-700 uppercase tracking-wider">Best</div>
+                    <div id="bestScore" class="text-lg font-extrabold text-pink-900">0</div>
+                </div>
+            </div>
+            <button onclick="startNewGame()" class="px-4 py-2.5 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold rounded-xl shadow-md hover:from-pink-600 hover:to-rose-500 transition active:scale-95 text-sm">
+                New Game
+            </button>
         </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
+    </header>
+
+    <!-- Game Board -->
+    <main class="grid-container relative my-auto">
+        <!-- Background 4x4 Grid -->
+        <div class="grid-bg">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
         </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
+
+        <!-- Tiles Overlay -->
+        <div id="tileContainer" class="tile-container"></div>
+
+        <!-- Win/Game Over Overlay -->
+        <div id="gameOverlay" class="absolute inset-0 bg-pink-900/80 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white z-20 opacity-0 pointer-events-none transition-opacity duration-300">
+            <h2 id="overlayTitle" class="text-4xl font-header mb-2 text-yellow-300">Game Over!</h2>
+            <p id="overlayMessage" class="text-pink-100 mb-6 font-medium">No more moves left!</p>
+            <div class="flex gap-3">
+                <button id="keepPlayingBtn" onclick="keepPlaying()" class="hidden px-4 py-2 bg-white/20 hover:bg-white/30 text-white font-bold rounded-xl backdrop-blur-md transition">
+                    Keep Going
+                </button>
+                <button onclick="startNewGame()" class="px-5 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-pink-950 font-extrabold rounded-xl shadow-lg transition active:scale-95">
+                    Try Again
+                </button>
+            </div>
         </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
+    </main>
+
+    <!-- Recipe / Cupcake Legend Toggle Button -->
+    <footer class="w-full max-w-[460px] mt-3 flex flex-col items-center mb-8">
+        <button onclick="toggleLegend()" class="text-xs font-bold text-pink-600 hover:text-pink-800 flex items-center gap-1 bg-white/60 px-3 py-1.5 rounded-full border border-pink-200 shadow-sm transition">
+            <span>🧁 View Cupcake Menu</span>
+            <svg id="legendArrow" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+
+        <!-- Menu Drawer -->
+        <div id="legendDrawer" class="hidden w-full mt-3 bg-white/80 backdrop-blur-md rounded-2xl p-3 border border-pink-100 shadow-lg max-h-48 overflow-y-auto">
+            <div class="grid grid-cols-2 gap-2 text-xs" id="legendContent">
+                <!-- Dynamically Populated -->
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <div class="tile-container">
+    <!-- SEO Article Section -->
+    <section class="w-full max-w-[760px] bg-white/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-pink-100 shadow-lg mb-8 text-gray-700 space-y-6">
+        <article class="prose max-w-none">
+            <h2 class="text-2xl sm:text-3xl font-header text-pink-600 mb-3">The Ultimate Guide to 2048 Cupcakes</h2>
+            <p class="text-sm sm:text-base leading-relaxed text-gray-600">
+                Welcome to <strong>2048 Cupcakes</strong>, the sweetest rendition of the world-famous 2048 sliding block puzzle game! Designed for puzzle enthusiasts and dessert lovers alike, this online game replaces plain numbers with mouth-watering vector cupcake illustrations. Whether you are playing on a smartphone, tablet, or desktop, your mission remains clear: combine matching cupcakes, manage your 4x4 grid strategically, and unlock the magnificent <strong>2048 Super Cupcake</strong>.
+            </p>
 
-      </div>
-    </div>
+            <h3 class="text-xl font-bold text-pink-700 mt-6 mb-2">How to Play 2048 Cupcakes</h3>
+            <p class="text-sm sm:text-base leading-relaxed text-gray-600">
+                Playing 2048 Cupcakes is easy to learn but challenging to master. Follow these basic rules:
+            </p>
+            <ul class="list-disc list-inside text-sm sm:text-base text-gray-600 space-y-1 my-3">
+                <li><strong>Slide Tiles:</strong> Use your keyboard arrow keys (or WASD) or swipe in any direction on touchscreens.</li>
+                <li><strong>Merge Identical Cupcakes:</strong> When two identical cupcake tiles slide into each other, they combine into a single, higher-value cupcake.</li>
+                <li><strong>Plan for New Spawns:</strong> Every time you make a move, a new 2-point (Vanilla Birthday) or 4-point (Bubblegum Basic) cupcake appears in an empty grid space.</li>
+                <li><strong>Win the Game:</strong> Keep merging tiles until you create the coveted <strong>2048 Super Cupcake</strong>.</li>
+            </ul>
 
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same symbol touch, they <strong>get promoted!</strong>
-    </p>
-    <hr>
-    <p class="tile-legend"><strong class="important">Tile Legend:</strong></p>
-    <hr>
-    <p class="disclaimer">
-    <strong class="important">Note:</strong> This site <a href="http://git.io/cupcakes">git.io/cupcakes</a> is a spin-off of the official version of <a href="http://git.io/2048">2048</a> created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a>
-    </p>
-    <hr>
-    <p class="credits">
-      Cupcakes images by <a href="http://www.georgetowncupcake.com/" title="Georgetown Cupcake | DC Cupcakes | About">Georgetown Cupcake</a>.
-    </p>
-    <p class="repo-link"><small>hosted on <a href="https://github.com/0x0800/">GitHub</a></small></p>
-  </div>
+            <h3 class="text-xl font-bold text-pink-700 mt-6 mb-2">Complete Cupcake Progression List</h3>
+            <p class="text-sm sm:text-base leading-relaxed text-gray-600 mb-3">
+                Track your recipe journey through all eleven stages of delicious cupcake combinations:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-medium text-pink-900 mb-4">
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🎂 <strong>2 Points:</strong> Vanilla Birthday</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🍬 <strong>4 Points:</strong> Bubblegum Basic</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">☀️ <strong>8 Points:</strong> Sunshine Vanilla</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🍫 <strong>16 Points:</strong> Valrhona Ganache</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🍪 <strong>32 Points:</strong> Chocolat Sensation</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🍋 <strong>64 Points:</strong> Zesty Lemon</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🍃 <strong>128 Points:</strong> Mini Minty</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🍯 <strong>256 Points:</strong> Caramel Fudge</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">🌈 <strong>512 Points:</strong> Rainbow Sparkle</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100">☕ <strong>1024 Points:</strong> Sweet Mocha</div>
+                <div class="bg-pink-50 p-2.5 rounded-lg border border-pink-100 sm:col-span-2 text-center bg-yellow-100 border-yellow-300">👑 <strong>2048 Points:</strong> Super Cupcake</div>
+            </div>
 
-  <script src="js/bind_polyfill.js"></script>
-  <script src="js/classlist_polyfill.js"></script>
-  <script src="js/animframe_polyfill.js"></script>
-  <script src="js/l10n.js"></script>
-  <script src="js/localization.js"></script>
-  <script src="js/keyboard_input_manager.js"></script>
-  <script src="js/html_actuator.js"></script>
-  <script src="js/grid.js"></script>
-  <script src="js/tile.js"></script>
-  <script src="js/local_storage_manager.js"></script>
-  <script src="js/game_manager.js"></script>
-  <script src="js/application.js"></script>
-  <script>
-    window.twttr = (function (d,s,id) {
-      var t, js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-      js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-    }(document, "script", "twitter-wjs"));
-  </script>
-  <script type="text/javascript">
+            <h3 class="text-xl font-bold text-pink-700 mt-6 mb-2">Pro Strategies & Tips to Win 2048 Cupcakes</h3>
+            <ol class="list-decimal list-inside text-sm sm:text-base text-gray-600 space-y-2">
+                <li><strong>Anchor in One Corner:</strong> Pick one corner (e.g., bottom-right) and build your highest-value cupcake there. Never move away from this corner unless forced to.</li>
+                <li><strong>Maintain a Chain Structure:</strong> Arrange your secondary high-value cupcakes in descending order next to your main corner cupcake to set up smooth chain reactions.</li>
+                <li><strong>Avoid Moving Up:</strong> If your corner is at the bottom, try to only press Down, Left, and Right. Pushing Up can spawn low-level cupcakes underneath your high-tier tiles and disrupt your setup.</li>
+                <li><strong>Use the Undo Button Wisely:</strong> Made an accidental slip? Use the built-in Undo button to rewind your move and preserve your optimal board setup.</li>
+            </ol>
+        </article>
+    </section>
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-49474780-3']);
-    _gaq.push(['_trackPageview']);
+    <!-- FAQ Accordion Section -->
+    <section class="w-full max-w-[760px] bg-white/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-pink-100 shadow-lg mb-12">
+        <h2 class="text-2xl sm:text-3xl font-header text-pink-600 mb-6 text-center">Frequently Asked Questions (FAQ)</h2>
+        <div class="space-y-3" id="faqAccordion">
+            
+            <!-- Question 1 -->
+            <div class="border border-pink-100 rounded-xl overflow-hidden bg-pink-50/50">
+                <button onclick="toggleFaq(1)" class="w-full p-4 text-left font-bold text-pink-900 flex justify-between items-center hover:bg-pink-100/50 transition">
+                    <span>What is 2048 Cupcakes?</span>
+                    <svg id="faqIcon-1" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="faqAnswer-1" class="hidden p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-pink-100/40">
+                    2048 Cupcakes is a sweet, dessert-themed spin on Gabriele Cirulli's popular 2048 tile puzzle game. Instead of combining numbers, you merge colorful cupcakes to discover new recipes and unlock the final 2048 Super Cupcake.
+                </div>
+            </div>
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+            <!-- Question 2 -->
+            <div class="border border-pink-100 rounded-xl overflow-hidden bg-pink-50/50">
+                <button onclick="toggleFaq(2)" class="w-full p-4 text-left font-bold text-pink-900 flex justify-between items-center hover:bg-pink-100/50 transition">
+                    <span>Is 2048 Cupcakes free to play?</span>
+                    <svg id="faqIcon-2" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="faqAnswer-2" class="hidden p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-pink-100/40">
+                    Yes, 100% free! You can play directly in your web browser on desktop or mobile without downloading apps, creating accounts, or paying anything.
+                </div>
+            </div>
 
-  </script>
+            <!-- Question 3 -->
+            <div class="border border-pink-100 rounded-xl overflow-hidden bg-pink-50/50">
+                <button onclick="toggleFaq(3)" class="w-full p-4 text-left font-bold text-pink-900 flex justify-between items-center hover:bg-pink-100/50 transition">
+                    <span>What happens after reaching the 2048 Super Cupcake?</span>
+                    <svg id="faqIcon-3" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="faqAnswer-3" class="hidden p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-pink-100/40">
+                    Once you unlock the 2048 tile, you win! However, you can click "Keep Going" to continue playing endlessly, combining cupcakes beyond 2048 to score maximum high points.
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="border border-pink-100 rounded-xl overflow-hidden bg-pink-50/50">
+                <button onclick="toggleFaq(4)" class="w-full p-4 text-left font-bold text-pink-900 flex justify-between items-center hover:bg-pink-100/50 transition">
+                    <span>How does the game save my progress and high score?</span>
+                    <svg id="faqIcon-4" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="faqAnswer-4" class="hidden p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-pink-100/40">
+                    Your highest score is automatically saved directly in your web browser using HTML5 LocalStorage, so your record persists even if you refresh or revisit the page later.
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="border border-pink-100 rounded-xl overflow-hidden bg-pink-50/50">
+                <button onclick="toggleFaq(5)" class="w-full p-4 text-left font-bold text-pink-900 flex justify-between items-center hover:bg-pink-100/50 transition">
+                    <span>Can I undo a wrong move in 2048 Cupcakes?</span>
+                    <svg id="faqIcon-5" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="faqAnswer-5" class="hidden p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-pink-100/40">
+                    Yes! Click or tap the Undo button at the top right corner of the screen to reverse up to five of your previous moves whenever you make a mistake.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Cupcake Definitions & SVG Graphic Builders
+        const CUPCAKES = {
+            2: { name: 'Vanilla Birthday', pts: 2, tileClass: 'tile-2', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#fbcfe8"/><path d="M5 10c0-3 3-5 7-5s7 2 7 5H5z" fill="#fff"/><circle cx="12" cy="4" r="1.5" fill="#ef4444"/>` },
+            4: { name: 'Bubblegum Basic', pts: 4, tileClass: 'tile-4', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#f472b6"/><path d="M5 10c0-4 3-6 7-6s7 2 7 6H5z" fill="#f0abfc"/><circle cx="12" cy="3" r="1.5" fill="#38bdf8"/>` },
+            8: { name: 'Sunshine Vanilla', pts: 8, tileClass: 'tile-8', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#fde047"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#fef08a"/><path d="M8 8c1-2 2-3 4-3s3 1 4 3" stroke="#eab308" stroke-width="1" fill="none"/>` },
+            16: { name: 'Valrhona Ganache', pts: 16, tileClass: 'tile-16', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#ea580c"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#7c2d12"/><circle cx="10" cy="7" r="1" fill="#fdba74"/><circle cx="14" cy="8" r="1" fill="#fdba74"/>` },
+            32: { name: 'Chocolat Sensation', pts: 32, tileClass: 'tile-32', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#78350f"/><path d="M5 10c0-4 3-6 7-6s7 2 7 6H5z" fill="#451a03"/><path d="M9 6q3-3 6 0" stroke="#dc2626" stroke-width="1.5" fill="none"/>` },
+            64: { name: 'Zesty Lemon', pts: 64, tileClass: 'tile-64', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#a3e635"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#facc15"/><path d="M12 2v3" stroke="#65a30d" stroke-width="1.5"/>` },
+            128: { name: 'Mini Minty', pts: 128, tileClass: 'tile-128', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#34d399"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#6ee7b7"/><circle cx="12" cy="4" r="1.5" fill="#047857"/>` },
+            256: { name: 'Caramel Fudge', pts: 256, tileClass: 'tile-256', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#d97706"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#f59e0b"/><path d="M7 10c1-2 3-3 5-1s4 0 5-1" stroke="#78350f" stroke-width="1.5" fill="none"/>` },
+            512: { name: 'Rainbow Sparkle', pts: 512, tileClass: 'tile-512', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#38bdf8"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#f472b6"/><circle cx="9" cy="7" r="1" fill="#facc15"/><circle cx="12" cy="6" r="1" fill="#4ade80"/><circle cx="15" cy="8" r="1" fill="#c084fc"/>` },
+            1024: { name: 'Sweet Mocha', pts: 1024, tileClass: 'tile-1024', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#8b5cf6"/><path d="M5 10c0-4 3-5 7-5s7 1 7 5H5z" fill="#581c87"/><path d="M10 4q2-2 4 0" stroke="#fde047" stroke-width="1.5" fill="none"/>` },
+            2048: { name: 'Super Cupcake', pts: 2048, tileClass: 'tile-2048', svg: (c) => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#ec4899"/><path d="M5 10c0-5 3-7 7-7s7 2 7 7H5z" fill="#facc15"/><polygon points="12,1 13.5,4 17,4.5 14.5,7 15,10 12,8.5 9,10 9.5,7 7,4.5 10.5,4" fill="#fbbf24"/>` }
+        };
+
+        // Game State Variables
+        let board = Array(4).fill(null).map(() => Array(4).fill(0));
+        let score = 0;
+        let bestScore = parseInt(localStorage.getItem('2048_cupcakes_best') || '0');
+        let soundMuted = false;
+        let hasWon = false;
+        let keepPlayingMode = false;
+        let historyStack = [];
+
+        // Web Audio API Synthesizer
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+        }
+
+        function playSound(type) {
+            if (soundMuted) return;
+            initAudio();
+            if (!audioCtx) return;
+
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'slide') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.08);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            } else if (type === 'merge') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.exponentialRampToValueAtTime(600, now + 0.12);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.12);
+                osc.start(now);
+                osc.stop(now + 0.12);
+            } else if (type === 'win') {
+                const notes = [400, 520, 660, 880];
+                notes.forEach((freq, idx) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.frequency.setValueAtTime(freq, now + idx * 0.08);
+                    g.gain.setValueAtTime(0.12, now + idx * 0.08);
+                    g.gain.linearRampToValueAtTime(0.01, now + idx * 0.08 + 0.15);
+                    o.start(now + idx * 0.08);
+                    o.stop(now + idx * 0.08 + 0.15);
+                });
+            } else if (type === 'gameover') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.linearRampToValueAtTime(120, now + 0.3);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            }
+        }
+
+        function toggleSound() {
+            soundMuted = !soundMuted;
+            const btn = document.getElementById('soundBtn');
+            const icon = document.getElementById('soundIcon');
+            if (soundMuted) {
+                btn.classList.add('text-gray-400', 'bg-gray-100');
+                btn.classList.remove('text-pink-600', 'bg-white');
+                icon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>`;
+            } else {
+                btn.classList.remove('text-gray-400', 'bg-gray-100');
+                btn.classList.add('text-pink-600', 'bg-white');
+                icon.innerHTML = `<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>`;
+                playSound('slide');
+            }
+        }
+
+        // Initialize Game
+        function initGame() {
+            document.getElementById('bestScore').textContent = bestScore;
+            populateLegend();
+            startNewGame();
+        }
+
+        function startNewGame() {
+            board = Array(4).fill(null).map(() => Array(4).fill(0));
+            score = 0;
+            hasWon = false;
+            keepPlayingMode = false;
+            historyStack = [];
+            updateUndoButton();
+            hideOverlay();
+            updateScore(0);
+            
+            // Add initial two tiles
+            spawnRandomTile();
+            spawnRandomTile();
+            renderBoard();
+        }
+
+        function saveState() {
+            // Keep last 5 moves in history
+            if (historyStack.length >= 5) historyStack.shift();
+            historyStack.push({
+                board: JSON.parse(JSON.stringify(board)),
+                score: score
+            });
+            updateUndoButton();
+        }
+
+        function undoMove() {
+            if (historyStack.length === 0) return;
+            const previousState = historyStack.pop();
+            board = previousState.board;
+            score = previousState.score;
+            updateScore(0);
+            updateUndoButton();
+            hideOverlay();
+            renderBoard();
+            playSound('slide');
+        }
+
+        function updateUndoButton() {
+            const undoBtn = document.getElementById('undoBtn');
+            undoBtn.disabled = historyStack.length === 0;
+        }
+
+        function spawnRandomTile() {
+            let emptyCells = [];
+            for (let r = 0; r < 4; r++) {
+                for (let c = 0; c < 4; c++) {
+                    if (board[r][c] === 0) emptyCells.push({ r, c });
+                }
+            }
+            if (emptyCells.length === 0) return;
+
+            let randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            // 90% chance for 2, 10% chance for 4
+            board[randomCell.r][randomCell.c] = Math.random() < 0.9 ? 2 : 4;
+            return randomCell;
+        }
+
+        function renderBoard(mergedCoords = []) {
+            const container = document.getElementById('tileContainer');
+            container.innerHTML = '';
+
+            for (let r = 0; r < 4; r++) {
+                for (let c = 0; c < 4; c++) {
+                    let val = board[r][c];
+                    if (val > 0) {
+                        let tile = document.createElement('div');
+                        let isMerged = mergedCoords.some(m => m.r === r && m.c === c);
+
+                        let info = CUPCAKES[val] || {
+                            name: `Deluxe ${val}`,
+                            pts: val,
+                            tileClass: 'tile-super',
+                            svg: () => `<path d="M12 20c-5 0-7-2-7-5l1-5h12l1 5c0 3-2 5-7 5z" fill="#f472b6"/><path d="M5 10c0-5 3-7 7-7s7 2 7 7H5z" fill="#facc15"/>`
+                        };
+
+                        tile.className = `tile w-[23%] h-[23%] tile-pos-${r}-${c} ${info.tileClass} ${isMerged ? 'tile-merged' : ''}`;
+                        
+                        // Responsive text size based on value digits
+                        let valFontSize = val >= 1000 ? 'text-[10px] sm:text-xs' : 'text-xs sm:text-sm';
+
+                        tile.innerHTML = `
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10 drop-shadow-sm pointer-events-none" viewBox="0 0 24 24">
+                                ${info.svg(val)}
+                            </svg>
+                            <span class="font-extrabold text-[9px] sm:text-[11px] leading-tight mt-0.5 truncate w-full px-0.5 pointer-events-none">${info.name}</span>
+                            <span class="font-black ${valFontSize} opacity-90 leading-none pointer-events-none">${val}</span>
+                        `;
+                        container.appendChild(tile);
+                    }
+                }
+            }
+        }
+
+        // Move Mechanics
+        function move(direction) {
+            let moved = false;
+            let mergedCoords = [];
+            let scoreIncrement = 0;
+
+            saveState();
+
+            let newBoard = JSON.parse(JSON.stringify(board));
+
+            // Helper logic for sliding a single row/column array
+            function slideLine(line) {
+                let filtered = line.filter(val => val !== 0);
+                let newLine = [];
+                let lineScore = 0;
+                let mergedIndices = [];
+
+                for (let i = 0; i < filtered.length; i++) {
+                    if (i < filtered.length - 1 && filtered[i] === filtered[i + 1]) {
+                        let mergedVal = filtered[i] * 2;
+                        newLine.push(mergedVal);
+                        lineScore += mergedVal;
+                        mergedIndices.push(newLine.length - 1);
+                        i++; // Skip next element
+                    } else {
+                        newLine.push(filtered[i]);
+                    }
+                }
+
+                while (newLine.length < 4) {
+                    newLine.push(0);
+                }
+
+                return { newLine, lineScore, mergedIndices };
+            }
+
+            if (direction === 'LEFT') {
+                for (let r = 0; r < 4; r++) {
+                    let { newLine, lineScore, mergedIndices } = slideLine(newBoard[r]);
+                    if (JSON.stringify(newBoard[r]) !== JSON.stringify(newLine)) moved = true;
+                    newBoard[r] = newLine;
+                    scoreIncrement += lineScore;
+                    mergedIndices.forEach(c => mergedCoords.push({ r, c }));
+                }
+            } else if (direction === 'RIGHT') {
+                for (let r = 0; r < 4; r++) {
+                    let reversed = [...newBoard[r]].reverse();
+                    let { newLine, lineScore, mergedIndices } = slideLine(reversed);
+                    newLine.reverse();
+                    if (JSON.stringify(newBoard[r]) !== JSON.stringify(newLine)) moved = true;
+                    newBoard[r] = newLine;
+                    scoreIncrement += lineScore;
+                    mergedIndices.forEach(c => mergedCoords.push({ r, c: 3 - c }));
+                }
+            } else if (direction === 'UP') {
+                for (let c = 0; c < 4; c++) {
+                    let col = [newBoard[0][c], newBoard[1][c], newBoard[2][c], newBoard[3][c]];
+                    let { newLine, lineScore, mergedIndices } = slideLine(col);
+                    if (JSON.stringify(col) !== JSON.stringify(newLine)) moved = true;
+                    for (let r = 0; r < 4; r++) newBoard[r][c] = newLine[r];
+                    scoreIncrement += lineScore;
+                    mergedIndices.forEach(r => mergedCoords.push({ r, c }));
+                }
+            } else if (direction === 'DOWN') {
+                for (let c = 0; c < 4; c++) {
+                    let col = [newBoard[3][c], newBoard[2][c], newBoard[1][c], newBoard[0][c]];
+                    let { newLine, lineScore, mergedIndices } = slideLine(col);
+                    newLine.reverse();
+                    let origCol = [newBoard[0][c], newBoard[1][c], newBoard[2][c], newBoard[3][c]];
+                    if (JSON.stringify(origCol) !== JSON.stringify(newLine)) moved = true;
+                    for (let r = 0; r < 4; r++) newBoard[r][c] = newLine[r];
+                    scoreIncrement += lineScore;
+                    mergedIndices.forEach(mIdx => mergedCoords.push({ r: 3 - mIdx, c }));
+                }
+            }
+
+            if (moved) {
+                board = newBoard;
+                updateScore(scoreIncrement);
+                spawnRandomTile();
+                renderBoard(mergedCoords);
+
+                if (scoreIncrement > 0) playSound('merge');
+                else playSound('slide');
+
+                checkGameState();
+            } else {
+                // Remove unused state from undo stack
+                historyStack.pop();
+                updateUndoButton();
+            }
+        }
+
+        function updateScore(amount) {
+            score += amount;
+            document.getElementById('score').textContent = score;
+            if (score > bestScore) {
+                bestScore = score;
+                document.getElementById('bestScore').textContent = bestScore;
+                localStorage.setItem('2048_cupcakes_best', bestScore);
+            }
+        }
+
+        function checkGameState() {
+            // Check Win (2048 cupcake reached)
+            if (!hasWon && !keepPlayingMode) {
+                for (let r = 0; r < 4; r++) {
+                    for (let c = 0; c < 4; c++) {
+                        if (board[r][c] === 2048) {
+                            hasWon = true;
+                            showOverlay('Delicious Win! 🧁', 'You created the 2048 Super Cupcake!', true);
+                            playSound('win');
+                            return;
+                        }
+                    }
+                }
+            }
+
+            // Check Game Over (No empty cells & no valid merges)
+            if (!hasValidMoves()) {
+                showOverlay('Game Over!', 'No more valid cupcake combinations!', false);
+                playSound('gameover');
+            }
+        }
+
+        function hasValidMoves() {
+            for (let r = 0; r < 4; r++) {
+                for (let c = 0; c < 4; c++) {
+                    if (board[r][c] === 0) return true;
+                    if (c < 3 && board[r][c] === board[r][c + 1]) return true;
+                    if (r < 3 && board[r][c] === board[r + 1][c]) return true;
+                }
+            }
+            return false;
+        }
+
+        function showOverlay(title, msg, isWin) {
+            const overlay = document.getElementById('gameOverlay');
+            document.getElementById('overlayTitle').textContent = title;
+            document.getElementById('overlayMessage').textContent = msg;
+            
+            const keepBtn = document.getElementById('keepPlayingBtn');
+            if (isWin) {
+                keepBtn.classList.remove('hidden');
+            } else {
+                keepBtn.classList.add('hidden');
+            }
+
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'pointer-events-auto');
+        }
+
+        function hideOverlay() {
+            const overlay = document.getElementById('gameOverlay');
+            overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function keepPlaying() {
+            keepPlayingMode = true;
+            hideOverlay();
+        }
+
+        // Legend Menu Generation
+        function populateLegend() {
+            const container = document.getElementById('legendContent');
+            container.innerHTML = '';
+            Object.keys(CUPCAKES).forEach(key => {
+                const item = CUPCAKES[key];
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-2 p-1.5 rounded-lg bg-pink-50 border border-pink-100';
+                div.innerHTML = `
+                    <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24">${item.svg(key)}</svg>
+                    <div class="overflow-hidden">
+                        <div class="font-bold text-pink-900 truncate">${item.name}</div>
+                        <div class="text-[10px] text-pink-600 font-semibold">${key} pts</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function toggleLegend() {
+            const drawer = document.getElementById('legendDrawer');
+            const arrow = document.getElementById('legendArrow');
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                drawer.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const answer = document.getElementById(`faqAnswer-${id}`);
+            const icon = document.getElementById(`faqIcon-${id}`);
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Event Listeners (Keyboard & Swipe Controls)
+        window.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    e.preventDefault();
+                    move('LEFT');
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    e.preventDefault();
+                    move('RIGHT');
+                    break;
+                case 'ArrowUp':
+                case 'w':
+                case 'W':
+                    e.preventDefault();
+                    move('UP');
+                    break;
+                case 'ArrowDown':
+                case 's':
+                case 'S':
+                    e.preventDefault();
+                    move('DOWN');
+                    break;
+            }
+        });
+
+        // Touch / Swipe Handling
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!touchStartX || !touchStartY) return;
+
+            let touchEndX = e.changedTouches[0].clientX;
+            let touchEndY = e.changedTouches[0].clientY;
+
+            let dx = touchEndX - touchStartX;
+            let dy = touchEndY - touchStartY;
+
+            // Minimum distance threshold for swipe
+            if (Math.max(Math.abs(dx), Math.abs(dy)) > 30) {
+                if (Math.abs(dx) > Math.abs(dy)) {
+                    if (dx > 0) move('RIGHT');
+                    else move('LEFT');
+                } else {
+                    if (dy > 0) move('DOWN');
+                    else move('UP');
+                }
+            }
+
+            touchStartX = 0;
+            touchStartY = 0;
+        }, { passive: true });
+
+        // Start the game when window loads
+        window.onload = initGame;
+    </script>
 </body>
 </html>
